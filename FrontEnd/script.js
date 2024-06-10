@@ -1,4 +1,10 @@
-//////////     A D D   W O R K S     //////////
+import MyClass from "./assets/js/MyClass.js"
+
+
+
+
+
+/*//////////     A D D   W O R K S     //////////
 
 function getWorks() {
   const works = "http://localhost:5678/api/works"
@@ -124,7 +130,7 @@ function addLogin() {
         <label htmlFor="password">Mot de passe</label>
         <input type="password" id="password" required />
     </form>
-    <input type="submit" id="submit" value="Se connecter" />
+    <input type="submit" id="submit" value="Se connecter" /> 
     <a href="#">Mot de passe oublié</a>
     </div>`
   header.innerHTML += stringLiteralLogin 
@@ -378,12 +384,12 @@ function addPhotoModal() {
   photoModal.innerHTML = `
     <button class="js-modal-back"><i class="fa-solid fa-arrow-left"></i></button>
     <form id="addPhotoForm">
-      <button id="butonImage">
+      <div id="butonImage">
         <input type="file" id="photo" name="photoFile" accept="image/*" style="display: none">
         <i class="fa-regular fa-image" id="imageLogo"></i>
         <label for="photo" id="addphoto">+ Ajouter une photo</label>
         <p id="photoSize">jpg, png : 4mo max</p>
-      </button>
+      </div>
       <label for="photoTitle" id="titlework">Titre</label>
       <input type="text" id="namework" required>
       <label for="photoCategory" id="titlecategorie">Catégorie</label>
@@ -392,6 +398,7 @@ function addPhotoModal() {
     </form>`
   addPictureButton.style.display = 'none'
   modalTitle.textContent = 'Ajout photo'
+  //photoModal.style.border = "none"
 
 
 
@@ -439,35 +446,37 @@ const selectedCategoryId = document.getElementById("categoriework").value
     }
   })
 
- 
-document.addEventListener('DOMContentLoaded', function () {
-const photoInput = document.getElementById("photo")                               /// show loaded image
-
-if (photoInput) { 
-  photoInput.addEventListener('change', function () {
-    
-    const selectedFile = photoInput.files[0]
-    const reader = new FileReader()
-    reader.onload = function (event) {
-      const imageUrl = event.target.result
-      const buttonImage = document.getElementById("butonImage")
-      const uploadedImage = document.createElement("img")
-      uploadedImage.src = imageUrl
-      uploadedImage.style.width = "35%"
-      uploadedImage.style.height = "100%"
-      while (buttonImage.firstChild) {
-        buttonImage.removeChild(buttonImage.firstChild)
-      }
-      buttonImage.appendChild(uploadedImage)
-    }
-    if (selectedFile) {
-      reader.readAsDataURL(selectedFile)
-    }
-  })
-}
-})
-
   
+
+ 
+ //document.addEventListener('DOMContentLoaded', function () {
+  const photoInput = document.getElementById("photo")                               /// show loaded image
+  //if (photoInput) { 
+    photoInput.addEventListener('change', function () {
+      const selectedFile = photoInput.files[0]
+      const reader = new FileReader()
+      reader.onload = function (event) {
+        const imageUrl = event.target.result
+        const buttonImage = document.getElementById("butonImage")
+        const uploadedImage = document.createElement("img")
+        uploadedImage.src = imageUrl
+        uploadedImage.style.width = "35%"
+        uploadedImage.style.height = "100%"
+        while (buttonImage.firstChild) {
+          buttonImage.removeChild(buttonImage.firstChild)
+        }
+        buttonImage.appendChild(uploadedImage)
+      }
+      if (selectedFile) {
+        reader.readAsDataURL(selectedFile)
+      }
+    })
+  //}
+ //})
+
+
+
+
 async function fetchAddProject(titleValue, selectedImage, selectedCategoryId) {              /// add new work
   const formData = new FormData()
   formData.append("image", selectedImage)
@@ -508,3 +517,4 @@ backButton.addEventListener('click', () => {
   backButton.style.display = "none"
 })
 }
+*/
