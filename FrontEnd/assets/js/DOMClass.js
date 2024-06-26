@@ -154,20 +154,19 @@ export default class DOMClass{
         const header = document.querySelector("header")
         const stringLiteralLogin = `<div class="login-container">
         <h2 class="title-login" id="loginLink">Log In</h2>
-        <form action="login" method="post">
+        <form>
             <label htmlFor="email">E-mail</label>
             <input type="email" id="email" required />
             <label htmlFor="password">Mot de passe</label>
-            <input type="password" id="password" required />    
+            <input type="password" id="password" required />  
+            <input type="submit" id="submit" value="Se connecter" />
+             <a href="#">Mot de passe oublié</a>   
         </form>
-        <input type="submit" id="submit" value="Se connecter" />
-             <a href="#">Mot de passe oublié</a> 
         </div>`
         header.insertAdjacentHTML('beforeend', stringLiteralLogin)
         
-    
-        const submitButton = document.getElementById("submit")
-        submitButton.addEventListener("click", this.submitLoginForm)
+        const formLogin = document.querySelector(".login-container form")
+        formLogin.addEventListener("submit", this.submitLoginForm)
         document.body.style.overflow = "hidden"
     }
 
@@ -262,17 +261,18 @@ export default class DOMClass{
         backButton.addEventListener('click', () => {
             const modalTitle = document.querySelector('.modal-title')
             const addPictureButton = document.querySelector('.addpicture')
-            
-            this.works.forEach(function(item, i){
+          
+            //this.works.forEach(function(item, i){
 
-                const recharge = document.querySelector('.modal-gallery')
+              //  const recharge = document.querySelector('.modal-gallery')
                 
-               recharge.innerHTML += '<div class="image-container"><img src="http://localhost:5678/images/appartement-paris-v1651287270508.png" alt="Image"><button class="hide-button"><i class="fa-solid fa-trash-can"></i></button></div>'
+              // recharge.innerHTML += '<div class="image-container"><img src="http://localhost:5678/images/appartement-paris-v1651287270508.png" alt="Image"><button class="hide-button"><i class="fa-solid fa-trash-can"></i></button></div>'
             
-            })
-          // alert(this.works)
+            //})
+
+            // alert(this.works)
             //loadWorks()
-            
+           
             photoForm.style.display = "none"
             modalTitle.textContent = 'Galerie photo'
             addPictureButton.style.display = 'block'
@@ -286,6 +286,7 @@ export default class DOMClass{
         console.log(selectElement.innerHTML)
         console.log(this.categories)
         console.log(this.works)
+
     
 
         this.categories.forEach(category => {

@@ -103,7 +103,8 @@ export default class APIClass extends DOMClass{
     }
     
     // loginUser = () => {
-    submitLoginForm = () => {
+    submitLoginForm = (e) => {
+        e.preventDefault()
         const email = document.getElementById("email").value                          /// sophie.bluel@test.tld
         const password = document.getElementById("password").value                   /// S0phie
         const data = {email, password}
