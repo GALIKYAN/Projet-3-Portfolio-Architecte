@@ -149,6 +149,7 @@ export default class DOMClass{
         const addPictureButton = document.querySelector('.addpicture')                       /// add picture click 
         addPictureButton.addEventListener('click', this.renderModalFormSelect)
     }
+
     renderLoginModal() {
         const header = document.querySelector("header")
         const stringLiteralLogin = `<div class="login-container">
@@ -157,10 +158,10 @@ export default class DOMClass{
             <label htmlFor="email">E-mail</label>
             <input type="email" id="email" required />
             <label htmlFor="password">Mot de passe</label>
-            <input type="password" id="password" required />
+            <input type="password" id="password" required />    
         </form>
         <input type="submit" id="submit" value="Se connecter" />
-        <a href="#">Mot de passe oublié</a>
+             <a href="#">Mot de passe oublié</a> 
         </div>`
         header.insertAdjacentHTML('beforeend', stringLiteralLogin)
         
@@ -176,7 +177,7 @@ export default class DOMClass{
         , container = document.createElement("div")
         , img = document.createElement("img")
         , hideButton = document.createElement("button")
-        , handleDelete = async () => {                              /// button delete work
+        , handleDelete = async () => {                                                        /// button delete work
             container.style.display = "none"
             const imageUrl = container.querySelector('img').src
             const workId = this.works.find(project => project.imageUrl === imageUrl)?.id
@@ -236,7 +237,7 @@ export default class DOMClass{
                 <input type="file" id="photo" name="photoFile" accept="image/*" style="display: none">
                 <i class="fa-regular fa-image" id="imageLogo"></i>
                 <img id="okimg" />
-                <span>+ Ajouter une photo</span>
+                <span id="addphoto">+ Ajouter photo</span>
                 <p id="photoSize">jpg, png : 4mo max</p>
             </label>
             <label for="photoTitle" id="titlework">Titre</label>
@@ -257,18 +258,26 @@ export default class DOMClass{
         photoForm.addEventListener('submit', fetchAddProject)
 
 
-
-
-        const backButton = document.querySelector('.js-modal-back')                      /// back button modal 
+       const backButton = document.querySelector('.js-modal-back')                      /// back button modal 
         backButton.addEventListener('click', () => {
             const modalTitle = document.querySelector('.modal-title')
             const addPictureButton = document.querySelector('.addpicture')
-            alert(this.works)
-            // loadWorks()
+            
+            this.works.forEach(function(item, i){
+
+                const recharge = document.querySelector('.modal-gallery')
+                
+               recharge.innerHTML += '<div class="image-container"><img src="http://localhost:5678/images/appartement-paris-v1651287270508.png" alt="Image"><button class="hide-button"><i class="fa-solid fa-trash-can"></i></button></div>'
+            
+            })
+          // alert(this.works)
+            //loadWorks()
+            
             photoForm.style.display = "none"
             modalTitle.textContent = 'Galerie photo'
             addPictureButton.style.display = 'block'
             backButton.style.display = "none"
+           
         })
 
 
@@ -287,7 +296,7 @@ export default class DOMClass{
         })
 
 
-        async function fetchAddProject(event) {              /// add new work
+        async function fetchAddProject(event) {                                                  /// add new work
             event.preventDefault()
             
             const selectedImage = document.getElementById("photo").files[0]
@@ -324,7 +333,29 @@ export default class DOMClass{
         }
     }
 
-    renderModalGallery(){
+    
+     renderModalGallery(){
+        
+    document.addEventListener('DOMContentLoaded', function () {
+        const photoInput = document.getElementById("photo")                               /// show loaded image
+            
+         if (photoInput) { 
+                photoInput.addEventListener('change', this.handleModalFormFileInput)
+                
+            }   
+        })
+
+    }
+
+}
+
+
+
+// const chose = new DOMClass()
+
+
+
+
 
         /*
         async function addCategories() {                                                           /// add category in select
@@ -342,20 +373,3 @@ export default class DOMClass{
         }
         */
         // window.addEventListener('load', this.renderModalFormSelect)
-        
-        
-        
-        
-        document.addEventListener('DOMContentLoaded', function () {
-            const photoInput = document.getElementById("photo")                               /// show loaded image
-            
-            if (photoInput) { 
-                photoInput.addEventListener('change', this.handleModalFormFileInput)
-            }
-        })
-        
-        
-    }
-
-}
-// const chose = new DOMClass()

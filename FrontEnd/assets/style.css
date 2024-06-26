@@ -249,9 +249,10 @@ footer nav ul {
     justify-content: center;
     align-items: center;
     z-index: 999;   
-  }
+}
 
-  #login-toggle {
+#login-toggle {
+    margin: 0;
     text-decoration: none;
 }
 
@@ -264,19 +265,27 @@ footer nav ul {
 }
 
 .login-container form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 350px;
-  }
+}
 
 .title-login {
     margin-bottom: 30px;
-  }
+}
+
+label {
+    width: 100%;
+    margin-bottom: 10px;
+}
 
 #email, #password {
-     width: 380px;
-     height: 40px;
-     border: none;
-     margin-bottom: 20px;
-     box-shadow: 0px 4px 14px 0px #00000017;    
+    width: 100%;
+    height: 40px;
+    border: none;
+    margin-bottom: 20px;
+    box-shadow: 0px 4px 14px 0px #00000017;    
 }
 
 input {
@@ -289,8 +298,11 @@ input {
     border: none;
 }
 
+a {
+    margin-top: 10px;
+}
 
-a:visited{
+a:visited {
     color: black;
 }
 
@@ -310,7 +322,7 @@ a:visited{
 
 #modalLink {
     position: absolute;
-    top: 10px;
+    top: 0px;
     right: 30%;
     font-size: 15px;
     text-decoration: none;
@@ -422,7 +434,7 @@ a:visited{
     color: #FFFFFF;
     font-size: 14px;
     font-weight: 700;
-    font-family: sans-serif;
+    font-family: syne;
     margin-top: 30px;
     margin-left: 100px;
     position: relative;
@@ -430,28 +442,25 @@ a:visited{
 }
 
 #butonImage {
-    background-color:#E8F1F6;
+    background-color: #E8F1F6;
     width: 420px;
     height: 170px;
     position: relative;
     border: none;
     border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
 #imageLogo {
-    position: absolute;
-    top: 10px;
-    left: 50%;
-    transform: translateX(-50%);    
     font-size: 80px;
     color: #B9C5CC;
 }
 
 #addphoto {
-    position: absolute;
-    top: 100px;
-    left: 50%;
-    transform: translateX(-50%);
     width: 175px;
     height: 35px;
     background-color: #CBD6DC;
@@ -460,15 +469,12 @@ a:visited{
     color: #306685;
     font-weight: 500;   
     font-size: 14px;
+    margin-top: 10px; 
 }
 
 #photoSize {
-    position: absolute;
-    top: 140px; 
-    left: 50%;
-    transform: translateX(-50%);
+    margin-top: 10px; 
     font-size: 10px;
-    font-weight: 400;
 }
 
 .overlay {
