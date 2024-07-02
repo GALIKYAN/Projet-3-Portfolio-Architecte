@@ -245,11 +245,11 @@ export default class DOMClass{
             <select id="categoriework" required> </select>
             <button id="valider" type="submit">Valider</button>
         </form>`
-        addPictureButton.style.display = 'none'
+        addPictureButton.value = 'Valider'
         modalTitle.textContent = 'Ajout photo'
         photo.addEventListener('change',addReader)
     }
-
+  
     renderModalFormSelect = () => {
         this.renderModalFormAddImage()
 
@@ -262,16 +262,16 @@ export default class DOMClass{
             const modalTitle = document.querySelector('.modal-title')
             const addPictureButton = document.querySelector('.addpicture')
           
-            //this.works.forEach(function(item, i){
-
-              //  const recharge = document.querySelector('.modal-gallery')
-                
-              // recharge.innerHTML += '<div class="image-container"><img src="http://localhost:5678/images/appartement-paris-v1651287270508.png" alt="Image"><button class="hide-button"><i class="fa-solid fa-trash-can"></i></button></div>'
-            
-            //})
-
-            // alert(this.works)
-            //loadWorks()
+            this.works.forEach(function(item, i){
+                const modalGallery = document.querySelector('.modal-gallery')
+                const tmp = `<div class="image-container">
+                        <img src="${item.imageUrl}" alt="Image">
+                        <button class="hide-button">
+                        <i class="fa-solid fa-trash-can"></i>
+                        </button>
+                    </div>`
+                    modalGallery.insertAdjacentHTML('beforeend', tmp)
+            })
            
             photoForm.style.display = "none"
             modalTitle.textContent = 'Galerie photo'
